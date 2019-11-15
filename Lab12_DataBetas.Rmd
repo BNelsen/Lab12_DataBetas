@@ -129,36 +129,88 @@ perm_cor <- function(perms = 1000, x, y)
 
 * Create visualizations of the statistical tests.
 
+The Histogram below shows the distribution of the difference of life expectencies between Uganda and The United States after executing a two-sample permutation function. This was done to see if the labels on the data were significant.
+
 ```{r}
-mean_dif <- tibble(test = perm_mean(1000, lifeExpcombined, length(lifeExpcombined) / 2))
+`Life Expectancy` <- 
+  perm_mean(1000, lifeExpcombined, length(lifeExpcombined) / 2)
+
+hist(`Life Expectancy`) + 
+  
+
 UGN <- filter(UgandaUSA, country == "Uganda")
 USA <- filter(UgandaUSA, country == "United States")
-UGNdiff <- 51.542 - 50.35
-USAdiff <- 78.242 - 73.38
-USdiff_UGNdiff <- USAdiff - UGNdiff
-
-ggplot(mean_dif) + geom_histogram(aes(test)) + geom_vline(xintercept = USdiff_UGNdiff)
+UGNdiff <- 51.542 - 50.35 # 1.192
+USAdiff <- 78.242 - 73.38 # 4.86
+USdiff_UGNdiff <- USAdiff - UGNdiff # 3.67
 ```
 
 <Visualization 2>
 
+```{r}
+#Create a smooth plot comparing GDP per capita and Population
+
+ggplot(gapminder_unfiltered, aes(gdpPercap, pop)) +
+  geom_smooth() +
+  xlab("GDP Per Capita") +
+  ylab("Population") +
+  ggtitle("GDP Per Capita VS Population of the World")
+
+#Check Correlation
+
+cor(gapminder_unfiltered$pop, gapminder_unfiltered$gdpPercap) # -.046
+
+```
+
+
 * Make data-based conclusions about the results. Do you believe there are differences among the groups you are comparing? 
+
+The Histogram tells us that values that fall within the majority of the data are not statistically significant, so if a value falls within that range we can not draw a conclusion.
+
+The difference in life expectency for Uganda and The United States from 1977 to 2007 are respectively 1.192 years and 4.86 years. The difference between those two values is 3.67 years. Hence, we fail to reject the null hypothesis since all of those values fall within the previously specified range. Therefore we can not make any conclusions.
+
+When comparing GDP per Capita and population, we can conclude that there is no linear relationship when all countries are taken into account. 
 
 
 
 * Generate percentiles, summary statistics (max, min), and probabilites (p-values) to justify your conclusions.
 
-<Justification>
+The minimum and maximum of the Life Expectancy histogram are -11.028 and 10.778 years respectively. 1.192 years, 4.86 years, and 3.67 years are all nowhere near either of those values. Furthermore, 1.192 years is the 59.945 percentile, 3.67 years is the 82.23 percentile, and 4.86 years is the 91.93 percentile. Hence, with a 95% confidence interval we can justify that we can fail to reject the null hypothesis.
+
+The correlation coefficient of GDP per capita and life expetancy is -0.046, which indicates that there is no loinear relationship between GDP per capita and population.
+
+```{r}
+#min of Histogram
+
+min_life_expectancy <- min(`Life Expectancy`)
+min_life_expectancy #-11.028
+
+#max of Histogram
+
+max_life_expectancy <- max(`Life Expectancy`)
+max_life_expectancy #10.778
+
+#generate percentiles for our values
+
+                               #1.192, 3.67, 4.86
+quantile(`Life Expectancy`, c(.59945, .8223, .9193))
+
+#set a 95% confidence interval and find the 2.5 percentile and 97.5 percentile
+
+quantile(`Life Expectancy`,c(.025, .975)) # -7.267 and 7.44 respectively
+
+
+```
 
 * Summarize each individual's contribution to the lab.
 
-Tanner: Formatting and Visualization 1
+Tanner:
 
-Drew:
+Drew: 
 
 Brandon:
 
-David: 
+David:
 
 Burke:
 
