@@ -109,7 +109,7 @@ perm_cor <- function(perms = 1000, x, y)
     # Compute the correlation between x and the randomly mixed
     # up y-vector. Store this value in the vector from step 1.
     coefficient <- cor(x, mix_up)
-    perm_mean_diffs[i] <- coefficient
+    cor_coeffs[i] <- coefficient
   }
   
   # Step 4:
