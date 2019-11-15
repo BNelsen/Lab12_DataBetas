@@ -130,13 +130,14 @@ perm_cor <- function(perms = 1000, x, y)
 * Create visualizations of the statistical tests.
 
 ```{r}
-test <- perm_mean(1000, lifeExpcombined, length(lifeExpcombined) / 2)
-hist(test)
+mean_dif <- tibble(test = perm_mean(1000, lifeExpcombined, length(lifeExpcombined) / 2))
 UGN <- filter(UgandaUSA, country == "Uganda")
 USA <- filter(UgandaUSA, country == "United States")
 UGNdiff <- 51.542 - 50.35
 USAdiff <- 78.242 - 73.38
 USdiff_UGNdiff <- USAdiff - UGNdiff
+
+ggplot(mean_dif) + geom_histogram(aes(test)) + geom_vline(xintercept = USdiff_UGNdiff)
 ```
 
 <Visualization 2>
