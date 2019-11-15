@@ -7,6 +7,9 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message = F, warning = F)
+library(tidyverse)
+library(gapminder)
+view(gapminder)
 ```
 
 # Overall Description of Lab 12
@@ -123,22 +126,24 @@ perm_cor <- function(perms = 1000, x, y)
   # Step 1:
   # Create vector of zeroes of length "perms" to store
   # permuted mean differnces
+  cor_mean_difference <- numeric(perms)
   
   # Loop throught number of permutations
   for (i in c(1:perms))
   {
     # Step 2:
     # Randomly mix up the values in the vector "y"
-    
+    mix_up <- sample(y)
     # Step 3:
     # Compute the correlation between x and the randomly mixed
     # up y-vector. Store this value in the vector from step 1.
+    cor_mean_difference <- cor(x, mix_up)
     
   }
   
   # Step 4:
   # Return new updated vector, created in step 1
-  
+    return(cor_mean_difference)
 }
 ```
 
@@ -146,9 +151,24 @@ perm_cor <- function(perms = 1000, x, y)
 
 Your data science team must come up with two specific questions of interest about the gapminder data set (from 'gapminder' library). 
 
+###Questions dont have to be this I thought I would just add a baseline to go off of.
+
+*Question one:
+
+Has life expectancy in Africa changed (precentage-wise) more than the Americas since 1977?
+
+*Question Two:
+Does increased GDP per capita grow population?
+
 * Briefly describe the gapminder dataset.
 
+The gapminder dataset was created to give access of easy to digest data about various socioeconomic statistics in each country, it is made to educate others and help bring to light some of those socioeconomic issues around the globe.
+
 * Explain why your questions are important. One of the questions should be answered with the two-sample mean permutation test, and the other with the correlation permutation test.
+
+Our first question is important because we want to see if the development of Africa is happening at an accelerated pace due possibly to the rise of new technology or the advancement of aid to third world countries. This can help us understand the pace at which African and third world countries in general can become first-world, if possible.
+
+Our second question is important because it can help us look at future trends in population growth based on GDP, if a country with high GDP has more population growth, it can help a country better prepare for the influx in population or if a country is growing rapidly it can help a country prepare for a growth in GDP.
 
 * Finish the function skeletons to implement the two-sample permuation test and the correlation permutation test. Run a two-sample mean permutation test. Run a correlation permutation test.
 
