@@ -152,13 +152,13 @@ ggplot(mean_dif) + geom_histogram(aes(test)) + geom_vline(xintercept = USdiff_UG
 
 * Summarize each individual's contribution to the lab.
 
-Tanner:
+Tanner: Formatting and Visualization 1
 
-Drew: 
+Drew:
 
 Brandon:
 
-David:
+David: 
 
 Burke:
 
