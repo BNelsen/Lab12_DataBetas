@@ -9,4 +9,131 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Gapminder Questions
+
+Your data science team must come up with two specific questions of interest about the gapminder data set (from 'gapminder' library). 
+
+<Question 1>
+
+<Question 2>
+
+* Briefly describe the gapminder dataset.
+
+<answer>
+
+* Explain why your questions are important. One of the questions should be answered with the two-sample mean permutation test, and the other with the correlation permutation test.
+
+<Explanation 1>
+
+<Explanation 2>
+
+* Finish the function skeletons to implement the two-sample permuation test and the correlation permutation test. Run a two-sample mean permutation test. Run a correlation permutation test.
+
+Two-Sample Permutation Function:
+
+```{r, eval = F}
+
+perm_mean <- function(perms = 1000, all_values, n_A)
+{
+  ## Variables ##
+  # perms: The number of permutations 
+  # all_values (num): all data values
+  # n_A (int): Size of group A
+  ###############
+  
+  # Step 1:
+  # Create vector of zeroes of length "perms" to store
+  # permuted mean differnces
+  perm_mean_diffs <- numeric(perms)
+  
+  # Loop throught number of permutations
+  for (i in c(1:perms))
+  {
+    # Step 2:
+    # Randomly separate vector "values" into disjoint 
+    # groups of size "nA" and "nB" respectively
+    rand_vector <- sample(all_values)
+    group_a <- rand_vector[1:n_A]
+    group_b <- rand_vector[(n_A+1):length(all_values)]
+    
+    # Step 3:
+    # Compute the sample means for the two groups from 
+    # step 2
+    mean_a <- mean(group_a)
+    mean_b <- mean(group_b)
+    
+    # Step 4: 
+    # Compute the difference in sample means, store the
+    # value in the vector from step 1
+    diff_means <- mean_a - mean_b
+    perm_mean_diffs[i] <- diff_means
+    
+  }
+  
+  # Step 5:
+  # Return the permuted mean differences vector
+  return(perm_mean_diffs)
+  
+}
+```
+
+Correlation Permutation Function:
+
+```{r, eval = F}
+
+perm_cor <- function(perms = 1000, x, y)
+{
+  ## Variables ##
+  # perms: The number of permutations 
+  # x: Vector of Variable 1 - for computing correlation
+  # y: Vector of Variable 2 - for computing correlation
+  ###############
+  
+  # Step 1:
+  # Create vector of zeroes of length "perms" to store
+  # permuted mean differnces
+  
+  # Loop throught number of permutations
+  for (i in c(1:perms))
+  {
+    # Step 2:
+    # Randomly mix up the values in the vector "y"
+    
+    # Step 3:
+    # Compute the correlation between x and the randomly mixed
+    # up y-vector. Store this value in the vector from step 1.
+    
+  }
+  
+  # Step 4:
+  # Return new updated vector, created in step 1
+  
+}
+```
+
+* Create visualizations of the statistical tests.
+
+<Visualization 1>
+
+<Visualization 2>
+
+* Make data-based conclusions about the results. Do you believe there are differences among the groups you are comparing? 
+
+<Conclusion>
+
+* Generate percentiles, summary statistics (max, min), and probabilites (p-values) to justify your conclusions.
+
+<Justification>
+
+* Summarize each individual's contribution to the lab.
+
+Tanner:
+
+Drew: 
+
+Brandon:
+
+David:
+
+Burke:
 
