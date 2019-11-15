@@ -206,7 +206,7 @@ quantile(`Life Expectancy`,c(.025, .975)) # -7.267 and 7.44 respectively
 
 Tanner: Formatting and Visualization 1
 
-Drew: 
+Drew: Code, Descriptions
 
 Brandon:
 
