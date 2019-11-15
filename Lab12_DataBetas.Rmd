@@ -204,13 +204,13 @@ quantile(`Life Expectancy`,c(.025, .975)) # -7.267 and 7.44 respectively
 
 * Summarize each individual's contribution to the lab.
 
-Tanner:
+Tanner: Formatting and Visualization 1
 
 Drew: 
 
 Brandon:
 
-David:
+David: Visualization 2, Conclusion, Justification
 
 Burke:
 
