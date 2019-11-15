@@ -208,7 +208,7 @@ Tanner: Formatting and Visualization 1
 
 Drew: Code, Descriptions
 
-Brandon:
+Brandon: Questions and  the second function
 
 David: Visualization 2, Conclusion, Justification
 
