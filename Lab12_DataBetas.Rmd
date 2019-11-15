@@ -15,11 +15,11 @@ Your data science team must come up with two specific questions of interest abou
 
 *Question one:*
 
-Has life expectancy in Africa changed (percentage-wise) more than the Americas since 1977?
+Has life expectancy in Uganda changed (percentage-wise) more than the United States since 1977?
 
 *Question Two:*
 
-Does increased GDP per capita grow population?
+IS GDP per capita correlated with population?
 
 *Briefly describe the gapminder dataset.*
 
@@ -27,7 +27,7 @@ The gapminder dataset was created to give access of easy to digest data about va
 
 *Explain why your questions are important. One of the questions should be answered with the two-sample mean permutation test, and the other with the correlation permutation test.*
 
-Our first question is important because we want to see if the development of Africa is happening at an accelerated pace due possibly to the rise of new technology or the advancement of aid to third world countries. This can help us understand the pace at which African and third world countries in general can become first-world, if possible.
+Our first question is important because we want to see if the development of a random country we picked in Africa is happening at an accelerated pace due possibly to the rise of new technology or the advancement of aid to third world countries. This can help us understand the pace at which African and third world countries in general can become first-world, if possible.
 
 Our second question is important because it can help us look at future trends in population growth based on GDP, if a country with high GDP has more population growth, it can help a country better prepare for the influx in population or if a country is growing rapidly it can help a country prepare for a growth in GDP.
 
@@ -116,6 +116,8 @@ perm_cor <- function(perms = 1000, x, y)
   # Return new updated vector, created in step 1
   return(cor_coeffs)
 }
+
+
 ```
 
 * Create visualizations of the statistical tests.
