@@ -132,12 +132,11 @@ perm_cor <- function(perms = 1000, x, y)
 The Histogram below shows the distribution of the difference of life expectencies between Uganda and The United States after executing a two-sample permutation function. This was done to see if the labels on the data were significant.
 
 ```{r}
-`Life Expectancy` <- 
+`Life_Expectancy` <- 
   perm_mean(1000, lifeExpcombined, length(lifeExpcombined) / 2)
 
-hist(`Life Expectancy`) + 
+hist(`Life Expectancy`)
   
-
 UGN <- filter(UgandaUSA, country == "Uganda")
 USA <- filter(UgandaUSA, country == "United States")
 UGNdiff <- 51.542 - 50.35 # 1.192
