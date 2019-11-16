@@ -86,6 +86,7 @@ perm_mean <- function(perms = 1000, all_values, n_A)
   return(perm_mean_diffs)
   
 }
+
 ```
 
 Correlation Permutation Function:
@@ -132,7 +133,34 @@ perm_cor <- function(perms = 1000, x, y)
 The Histogram below shows the distribution of the difference of life expectencies between Uganda and The United States after executing a two-sample permutation function. This was done to see if the labels on the data were significant.
 
 ```{r}
-`Life_Expectancy` <- 
+
+perm_mean <- function(perms = 1000, all_values, n_A)
+{
+
+  perm_mean_diffs <- numeric(perms)
+
+  for (i in c(1:perms))
+  {
+
+    rand_vector <- sample(all_values)
+    group_a <- rand_vector[1:n_A]
+    group_b <- rand_vector[(n_A+1):length(all_values)]
+    
+
+    mean_a <- mean(group_a)
+    mean_b <- mean(group_b)
+
+    diff_means <- mean_a - mean_b
+    perm_mean_diffs[i] <- diff_means
+    
+  }
+  
+
+  return(perm_mean_diffs)
+  
+}
+
+`Life Expectancy` <- 
   perm_mean(1000, lifeExpcombined, length(lifeExpcombined) / 2)
 
 hist(`Life Expectancy`)
